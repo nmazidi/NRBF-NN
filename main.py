@@ -14,6 +14,7 @@ print(testX)
 print('Test Y:')
 print(testY)
 
+
 plt.figure(1)
 plt.subplot(211)
 plt.plot(trainX, trainY, 'r--o')
@@ -27,6 +28,8 @@ plt.show()
 hidden_nodes = []
 
 for i in range(len(trainX)):
-    hidden_nodes.append(Neuron(trainX[i],trainY[i]))
+    hidden_nodes.append(Neuron(float(trainX[i]),float(trainY[i]),0.5))
 
-#LearnRBF(trainX, trainY)
+print(hidden_nodes[1].getPhi(1))
+
+#LearnRBF(trainX, trainY, hidden_nodes)

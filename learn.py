@@ -1,11 +1,10 @@
-def LearnRBF(trainX,trainY):
-    hidden_nodes = []
-    output_nodes = []
+def LearnRBF(trainX,trainY,hidden_nodes):
     iterations = 30
     test_interval = 1
     global_err = 0
     last_global_err = 0
     num_hidden_nodes = 10
+    learning_rate = 0.1
     last_training_pat = len(trainY)-1
 
     # set node width
