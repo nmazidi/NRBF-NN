@@ -1,5 +1,7 @@
 import matplotlib.pyplot as plt
 from importdata import ImportData
+from learn import LearnRBF
+from Neuron import Neuron
 
 trainX, trainY, testX, testY = ImportData()
 
@@ -21,3 +23,10 @@ plt.subplot(212)
 plt.plot(testX,testY, 'r--o')
 plt.title('Testing data set')
 plt.show()
+
+hidden_nodes = []
+
+for i in range(len(trainX)):
+    hidden_nodes.append(Neuron(trainX[i],trainY[i]))
+
+#LearnRBF(trainX, trainY)
