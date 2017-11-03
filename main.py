@@ -1,37 +1,25 @@
-import matplotlib.pyplot as plt
 from importdata import ImportData
+from plotdata import PlotData
 from learn import LearnRBF
 from Neuron import Neuron
+from Network import Network
 
-trainX, trainY, testX, testY = ImportData()
-
-print('Train X:')
-print(trainX)
-print('Train Y:')
-print(trainY)
-print('Test X:')
-print(testX)
-print('Test Y:')
-print(testY)
-
+data = ImportData()
+""" 0 = trainX
+    1 = trainY
+    2 = testX
+    3 = testY
 """
-plt.figure(1)
-plt.subplot(211)
-plt.plot(trainX, trainY, 'r--o')
-plt.title('Training data set')
+num_hidden_nodes = 10
+sigma_value = 0.4
 
-plt.subplot(212)
-plt.plot(testX,testY, 'r--o')
-plt.title('Testing data set')
-plt.show()
-"""
+#PlotData(data)
 
-hidden_nodes = []
+network = Network(num_hidden_nodes, sigma_value)
 
-for i in range(len(trainX)):
-    hidden_nodes.append(Neuron(float(trainX[i]),float(trainY[i]),0.4))
-
+for i in range(num_hidden_nodes):
+    network.createNode(data[0][i],data[1][i])
 
 #print(hidden_nodes[1].getPhi(0.1))
 
-LearnRBF(trainX, trainY, hidden_nodes)
+LearnRBF(data, network)
