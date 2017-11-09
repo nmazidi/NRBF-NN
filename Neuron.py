@@ -9,7 +9,7 @@ class Neuron(object):
     def getPhi(self, input):
         # EXP(-(1/(2*(sigma*sigma)))*()(xOld-xNew)(xOld-xNew)))
         result = input - self.center
-        result = result*result
+        result = result**2
         temp = 2*(self.sigma*self.sigma)
         result = -(result/temp)
         result = math.exp(result)

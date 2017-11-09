@@ -3,6 +3,7 @@ from plotdata import PlotData
 from learn import LearnRBF
 from Neuron import Neuron
 from Network import Network
+import matplotlib.pyplot as plt
 
 data = ImportData()
 """ 0 = trainX
@@ -19,7 +20,5 @@ network = Network(num_hidden_nodes, sigma_value)
 
 for i in range(num_hidden_nodes):
     network.createNode(data[0][i],data[1][i])
-
-#print(hidden_nodes[1].getPhi(0.1))
 
 LearnRBF(data, network)
