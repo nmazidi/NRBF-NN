@@ -2,7 +2,7 @@ import math
 import matplotlib.pyplot as plt
 
 def LearnRBF(data, network):
-    iterations = 1000
+    iterations = 1
     test_interval = 1
     global_err = []
     learning_rate = 0.1
@@ -21,4 +21,3 @@ def LearnRBF(data, network):
             print("Desired Output: {0}".format(data[1][j]))
             print("Output: {0}".format(output))
         global_err.append(math.sqrt(err/last_training_pat))
-    
