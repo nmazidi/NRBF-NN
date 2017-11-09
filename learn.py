@@ -12,7 +12,10 @@ def LearnRBF(data, network):
 
     for i in range(iterations):
         global_err = 0
-        for j in range(0,last_training_pat):
-            phi = network.hidden_nodes[j].getPhi(float(data[0][j]))
-            output = phi * network.hidden_nodes[j].weight
-            print(output)
+        for j in range(last_training_pat):
+            print("training pattern: {0}".format(j))
+            input = data[0][j]
+            output = network.getOutput(input)
+            #network.updateNode()
+            print('Input: {0}'.format(input))
+            print("Output: {0}".format(output))
