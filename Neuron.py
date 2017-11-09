@@ -4,6 +4,7 @@ class Neuron(object):
         self.center = center
         self.weight = weight
         self.sigma = sigma
+        self.phi = 0
 
     def getPhi(self, input):
         # EXP(-(1/(2*(sigma*sigma)))*()(xOld-xNew)(xOld-xNew)))
@@ -12,4 +13,5 @@ class Neuron(object):
         temp = 2*(self.sigma*self.sigma)
         result = -(result/temp)
         result = math.exp(result)
+        self.phi = result
         return result
