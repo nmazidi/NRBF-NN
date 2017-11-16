@@ -14,4 +14,4 @@ class Neuron(object):
         result = -(result/temp)
         result = math.exp(result)
         self.phi = result
-        return result  
+        return result

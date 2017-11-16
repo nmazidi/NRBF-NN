@@ -4,7 +4,6 @@ from learn import LearnRBF
 from Neuron import Neuron
 from Network import Network
 import matplotlib.pyplot as plt
-
 data = ImportData()
 """ 0 = trainX
     1 = trainY

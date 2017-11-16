@@ -1,9 +1,10 @@
 import matplotlib.pyplot as plt
-import numpy
 
-hl, = plt.plot([], [])
-
-def update_line(hl, new_data):
-    hl.set_xdata(numpy.append(hl.get_xdata(), new_data))
-    hl.set_ydata(numpy.append(hl.get_ydata(), new_data))
-    plt.draw()
+def PlotError(train_err, test_err, num_iterations):
+    plt.plot(range(num_iterations), train_err, label='Training')
+    plt.plot(range(num_iterations), test_err, label='Testing')
+    plt.legend(loc='upper right')
+    plt.ylim([0, 0.1])
+    plt.xlabel('Iterations')
+    plt.ylabel('Error')
+    plt.show()
