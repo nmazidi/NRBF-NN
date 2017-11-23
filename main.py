@@ -13,7 +13,7 @@ data = ImportData()
 num_hidden_nodes = 10
 
 
-sigma_value = 0.5
+sigma_value = .4
 
 #PlotData(data)
 
