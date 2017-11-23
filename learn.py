@@ -45,5 +45,5 @@ def LearnRBF(data, network):
         global_train_err.append(math.sqrt(train_err/last_training_pat))
         global_test_err.append(math.sqrt(test_err/last_testing_pat))
 
-    PlotLearning(network, data[0], data[1])
+    PlotLearning(network, data)
     PlotError(global_train_err, global_test_err, iterations)
