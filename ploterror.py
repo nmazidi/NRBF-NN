@@ -10,4 +10,4 @@ def PlotError(train_err, test_err, num_iterations):
     plt.ylim([0, 0.1])
     plt.xlabel('Iterations')
     plt.ylabel('Error')
-    #plt.show()
+    plt.show()
