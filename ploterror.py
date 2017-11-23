@@ -8,3 +8,5 @@ def PlotError(train_err, test_err, num_iterations):
     plt.xlabel('Iterations')
     plt.ylabel('Error')
     plt.show()
+    print("Last train error: {0}".format(train_err[num_iterations-1]))
+    print("Last test error: {0}".format(test_err[num_iterations-1]))

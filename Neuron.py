@@ -1,3 +1,4 @@
+from matplotlib import pyplot
 import math
 class Neuron(object):
     def __init__(self, center, weight, sigma):

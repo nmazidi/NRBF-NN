@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from ploterror import PlotError
 
 def LearnRBF(data, network):
-    iterations = 200
+    iterations = 500
     test_interval = 1
     global_train_err = []
     global_test_err = []
@@ -44,3 +44,5 @@ def LearnRBF(data, network):
         global_train_err.append(math.sqrt(train_err/last_training_pat))
         global_test_err.append(math.sqrt(test_err/last_testing_pat))
     PlotError(global_train_err, global_test_err, iterations)
+
+    

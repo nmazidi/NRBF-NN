@@ -11,7 +11,9 @@ data = ImportData()
     3 = testY
 """
 num_hidden_nodes = 10
-sigma_value = 0.4
+
+
+sigma_value = 0.5
 
 #PlotData(data)
 
