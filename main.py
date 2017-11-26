@@ -1,8 +1,9 @@
 from importdata import ImportData
-from plotdata import PlotData
+from plotnetwork import PlotNetwork
 from learn import LearnRBF
-from Neuron import Neuron
+from Node import Node
 from Network import Network
+from k_means_cluster import k_means_cluster
 import matplotlib.pyplot as plt
 data = ImportData()
 """ 0 = trainX
@@ -10,16 +11,14 @@ data = ImportData()
     2 = testX
     3 = testY
 """
-num_hidden_nodes = 10
+num_hidden_nodes = 3
 
 
 sigma_value = .4
 
-#PlotData(data)
-
 network = Network(num_hidden_nodes, sigma_value)
+network = k_means_cluster(network, data[0])
 
-for i in range(num_hidden_nodes):
-    network.createNode(data[0][i],data[1][i])
+PlotNetwork(network,data)
 
-LearnRBF(data, network)
+#LearnRBF(data, network)
