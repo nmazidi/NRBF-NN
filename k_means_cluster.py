@@ -6,9 +6,10 @@ def k_means_cluster(network, data):
     # Initialisation
     for i in range(network.num_hidden_nodes):
         network.createNode(data[randint(0, len(data)-1)], 1)
+        print(network.hidden_nodes[i].center)
 
     # Assignment
-    assignments = [0] * len(data)
+    network.assignments = [10000] * len(data)
     for i in range(len(data)):
         for j in range(network.num_hidden_nodes):
             temp = np.sqrt(
@@ -16,7 +17,7 @@ def k_means_cluster(network, data):
                 #uncomment for multiple dims
                 # + ( - network.hidden_nodes[j].center) ** 2
             )
-            if (temp > assignments[i]):
-                assignments[i] = j;
-    print(assignments[5])
+            if (temp < network.assignments[i]):
+                network.assignments[i] = temp;
+    print(network.assignments)
     return network

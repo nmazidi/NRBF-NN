@@ -6,6 +6,7 @@ class Network(object):
         self.num_hidden_nodes = num_hidden_nodes
         self.sigma = sigma
         self.hidden_nodes = []
+        self.assignments = []
 
     def createNode(self, center, init_weight):
         self.hidden_nodes.append(Node(center,init_weight,self.sigma))
