@@ -1,11 +1,11 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from random import randint
+import random
 
 def k_means_cluster(network, data):
     # Initialisation
     for i in range(network.num_hidden_nodes):
-        network.createNode(data[randint(0, len(data)-1)], 1)
+        network.createNode(random.uniform(0,max(data)), 1)
         print(network.hidden_nodes[i].center)
 
     # Assignment
@@ -18,7 +18,6 @@ def k_means_cluster(network, data):
                 #uncomment for multiple dims
                 # + ( - network.hidden_nodes[j].center) ** 2
             )
-            print(temp)
             if (temp < distance):
                 distance = temp
                 network.assignments[i] = j;
