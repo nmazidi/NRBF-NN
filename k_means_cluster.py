@@ -23,3 +23,17 @@ def k_means_cluster(network, data):
                 network.assignments[i] = j;
     print(network.assignments)
     return network
+def update(network, data):
+    means = [0] * network.num_hidden_nodes
+    counts = [0] * network.num_hidden_nodes
+
+    for i in range(len(network.assignments)):
+        means[network.assignments[i]] += data[i]
+        counts[network.assignments[i]] += 1
+    print(means)
+    for i in range(len(means)):
+        means[i] /= counts[i]
+        print(means)
+    for i in range(network.num_hidden_nodes):
+        network.hidden_nodes[i].center = means[i]
+    return network
