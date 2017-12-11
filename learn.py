@@ -5,13 +5,11 @@ from plotlearning import PlotLearning
 
 def LearnRBF(data, network):
     iterations = 1000
-    test_interval = 1
     global_train_err = []
     global_test_err = []
     learning_rate = 0.1
     last_training_pat = len(data[1])
     last_testing_pat = len(data[3])
-
     for i in range(iterations):
         train_err = 0
         test_err = 0
@@ -37,13 +35,13 @@ def LearnRBF(data, network):
             output = network.getOutput(input)
             temp = (data[3][j]-output)**2
             test_err += temp
-            for k in range(network.num_hidden_nodes):
-                network.updateNode(k,output,data[3][j],learning_rate)
             print('Input: {0}'.format(input))
             print("Desired Output: {0}".format(data[3][j]))
             print("Output: {0}".format(output))
+
         global_train_err.append(math.sqrt(train_err/last_training_pat))
         global_test_err.append(math.sqrt(test_err/last_testing_pat))
 
     PlotLearning(network, data)
-    PlotError(global_train_err, global_test_err, iterations)
+
+    return network, data, global_train_err, global_test_err
