@@ -1,11 +1,18 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import random
+from util_funcs import max_nested_list
 
 def k_means_cluster(network, data):
     # Initialisation
+    print(random.uniform(0,max_nested_list(data,0)))
     for i in range(network.num_hidden_nodes):
-        network.createNode(random.uniform(0,max(data)), 1)
+        centers = []
+        for j in range(len(data[0])):
+
+            centers.append(random.uniform(0,max_nested_list(data,j)))
+        print(centers)
+        network.createNode(centers, 1)
         print(network.hidden_nodes[i].center)
 
     # Assignment

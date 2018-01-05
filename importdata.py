@@ -9,6 +9,7 @@ def ImportData():
         i = 1
         for line in file:
             raw = line.rstrip('\n').split('\t')
+            raw = [float(j) for j in raw]
             if i < 35024:
                 trainY.append(raw[0])
                 raw.pop(0)
@@ -20,4 +21,4 @@ def ImportData():
             i = i + 1
     print('data import successful')
 
-return trainX, trainY, testX, testY
+    return trainX, trainY, testX, testY
