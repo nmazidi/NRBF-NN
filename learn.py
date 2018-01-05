@@ -7,7 +7,7 @@ def LearnRBF(data, network):
     iterations = 1000
     global_train_err = []
     global_test_err = []
-    learning_rate = 0.1
+    learning_rate = 0.01
     last_training_pat = len(data[1])
     last_testing_pat = len(data[3])
     for i in range(iterations):

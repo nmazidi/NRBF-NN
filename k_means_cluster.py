@@ -5,11 +5,8 @@ import random
 def k_means_cluster(network, data):
     # Initialisation
     for i in range(network.num_hidden_nodes):
-        if network.num_hidden_nodes == len(data):
-            network.createNode(data[i], 1)
-        else:
-            network.createNode(random.uniform(0,max(data)), 1)
-            print(network.hidden_nodes[i].center)
+        network.createNode(random.uniform(0,max(data)), 1)
+        print(network.hidden_nodes[i].center)
 
     # Assignment
     network.assignments = [10000] * len(data)

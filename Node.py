@@ -1,8 +1,8 @@
 from matplotlib import pyplot
 import math
 class Node(object):
-    def __init__(self, center, weight, sigma):
-        self.center = center
+    def __init__(self, centers, weight, sigma):
+        self.centers = centers
         self.weight = weight
         self.sigma = sigma
         self.phi = 0

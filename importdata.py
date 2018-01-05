@@ -1,37 +1,23 @@
 def ImportData():
-    rawtrain = []
-    rawtest = []
+    raw = []
     trainX = []
     trainY = []
     testX = []
     testY = []
 
-    with open("TRAIN10X.DAT") as file:
+    with open("_data/data.txt") as file:
+        i = 1
         for line in file:
-            rawtrain.append(line.rstrip('\n\r '))
-    with open("TEST10X.DAT") as file:
-        for line in file:
-            rawtest.append(line.rstrip('\n\r '))
-    i = 0
-    while i < len(rawtrain):
-        if rawtrain[i] != '':
-            trainX.append(float(rawtrain[i]))
-            trainY.append(float(rawtrain[i+2]))
-            i += 5
-    i = 0
-    while i < len(rawtest):
-        if rawtest[i] != '':
-            testX.append(float(rawtest[i]))
-            testY.append(float(rawtest[i+2]))
-            i += 5
+            raw = line.rstrip('\n').split('\t')
+            if i < 35024:
+                trainY.append(raw[0])
+                raw.pop(0)
+                trainX.append(raw)
+            else:
+                testY.append(raw[0])
+                raw.pop(0)
+                testX.append(raw)
+            i = i + 1
+    print('data import successful')
 
-    print('Train X:')
-    print(trainX)
-    print('Train Y:')
-    print(trainY)
-    print('Test X:')
-    print(testX)
-    print('Test Y:')
-    print(testY)
-
-    return trainX, trainY, testX, testY
+return trainX, trainY, testX, testY
