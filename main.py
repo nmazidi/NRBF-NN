@@ -13,7 +13,7 @@ sigma_value = .4
 network = Network(num_hidden_nodes, sigma_value)
 network = k_means_cluster(network, data[0])
 for i in range(3):
-    PlotNetwork(network, data)
+    PlotNetwork(network, data[0])
     network,old_centers = k_means_update(network,data[0])
     update_found = False
     for j in range(len(old_centers)):
