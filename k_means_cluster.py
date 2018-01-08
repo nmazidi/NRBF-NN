@@ -9,7 +9,6 @@ def k_means_cluster(network, data):
         centers = []
         for j in range(len(data[0])):
             centers.append(random.uniform(0,max_nested_list(data,j)))
-        print(centers)
         network.createNode(centers, 1)
 
     # Assignment
@@ -26,14 +25,11 @@ def k_means_cluster(network, data):
                 network.assignments[i] = j;
     return network
 def k_means_update(network, data):
-    means = [0,0,0] * network.num_hidden_nodes
+    means = [[0,0,0] for x in range(network.num_hidden_nodes)]
     for dim in range(len(data[0])):
         counts = [0] * network.num_hidden_nodes
 
         for i in range(len(network.assignments)):
-            print(i)
-            print(dim)
-            print(network.assignments[i])
             means[network.assignments[i]][dim] += data[i][dim]
             counts[network.assignments[i]] += 1
 

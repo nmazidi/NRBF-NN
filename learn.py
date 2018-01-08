@@ -2,9 +2,10 @@ import math
 import matplotlib.pyplot as plt
 from ploterror import PlotError
 from plotlearning import PlotLearning
+import sys
 
 def LearnRBF(data, network):
-    iterations = 1
+    iterations = 10
     global_train_err = []
     global_test_err = []
     learning_rate = 0.01
@@ -13,9 +14,9 @@ def LearnRBF(data, network):
     for i in range(iterations):
         train_err = 0
         test_err = 0
-        print('\nIteration: {0}'.format(i+1))
+        print('Iteration: {0}'.format(i+1))
         # Training
-        print('TRAINING')
+        #print('TRAINING')
         for j in range(last_training_pat):
             #print("training pattern: {0}".format(j+1))
             input = data[0][j]
@@ -23,15 +24,15 @@ def LearnRBF(data, network):
             output = network.getOutput(input)
             temp = (data[1][j]-output)**2
             train_err += temp
-            print('start')
+            #print('start')
             for k in range(network.num_hidden_nodes):
                 network.updateNode(k,output,data[1][j],learning_rate)
 
-            print('Input: {0}'.format(input))
-            print("Desired Output: {0}".format(data[1][j]))
-            print("Output: {0}".format(output))
+        #print('Input: {0}'.format(input))
+        print("Desired Output: {0}".format(data[1][8783]))
+        print("Output: {0}".format(output))
         # Testing
-        print('TESTING')
+        #print('TESTING')
         #for j in range(last_testing_pat):
             #print("testing pattern: {0}".format(j+1))
         #    input = data[2][j]
