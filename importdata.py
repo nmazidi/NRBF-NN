@@ -5,12 +5,12 @@ def ImportData():
     testX = []
     testY = []
 
-    with open("_data/data.txt") as file:
+    with open("_data/datatest.txt") as file:
         i = 1
         for line in file:
             raw = line.rstrip('\n').split('\t')
             raw = [float(j) for j in raw]
-            if i < 500:
+            if i < 8785:
                 #35024
                 trainY.append(raw[0])
                 raw.pop(0)

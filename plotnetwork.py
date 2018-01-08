@@ -11,9 +11,6 @@ def PlotNetwork(network, data):
         ax.scatter(network.hidden_nodes[i].center[0],network.hidden_nodes[i].center[1],network.hidden_nodes[i].center[2], color=colmap[i])
 
     for i in range(len(network.assignments)):
-        print(data[i][0])
-        print(data[i][1])
-        print(data[i][2])
         ax.scatter(data[i][0],data[i][1],data[i][2], color=colmap[network.assignments[i]], alpha=0.5, edgecolor='k')
 
 

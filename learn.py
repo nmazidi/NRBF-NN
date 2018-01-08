@@ -4,7 +4,7 @@ from ploterror import PlotError
 from plotlearning import PlotLearning
 
 def LearnRBF(data, network):
-    iterations = 1000
+    iterations = 1
     global_train_err = []
     global_test_err = []
     learning_rate = 0.01
@@ -17,27 +17,30 @@ def LearnRBF(data, network):
         # Training
         print('TRAINING')
         for j in range(last_training_pat):
-            print("training pattern: {0}".format(j+1))
+            #print("training pattern: {0}".format(j+1))
             input = data[0][j]
+            #print('test {0}'.format(input))
             output = network.getOutput(input)
             temp = (data[1][j]-output)**2
             train_err += temp
+            print('start')
             for k in range(network.num_hidden_nodes):
                 network.updateNode(k,output,data[1][j],learning_rate)
+
             print('Input: {0}'.format(input))
             print("Desired Output: {0}".format(data[1][j]))
             print("Output: {0}".format(output))
         # Testing
         print('TESTING')
-        for j in range(last_testing_pat):
-            print("testing pattern: {0}".format(j+1))
-            input = data[2][j]
-            output = network.getOutput(input)
-            temp = (data[3][j]-output)**2
-            test_err += temp
-            print('Input: {0}'.format(input))
-            print("Desired Output: {0}".format(data[3][j]))
-            print("Output: {0}".format(output))
+        #for j in range(last_testing_pat):
+            #print("testing pattern: {0}".format(j+1))
+        #    input = data[2][j]
+        #    output = network.getOutput(input)
+        #    temp = (data[3][j]-output)**2
+        #    test_err += temp
+            #print('Input: {0}'.format(input))
+            #print("Desired Output: {0}".format(data[3][j]))
+            #print("Output: {0}".format(output))
 
         global_train_err.append(math.sqrt(train_err/last_training_pat))
         global_test_err.append(math.sqrt(test_err/last_testing_pat))
