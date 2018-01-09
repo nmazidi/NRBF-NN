@@ -35,7 +35,7 @@ class Network(object):
         if sum_phi != 0:
             output = sum_phixweight / sum_phi
         else:
-            output = sum_phixweight
+            output = sum_phixweight /sum_phi
         #print('sumphi {0}'.format(sum_phi))
         #print('sumphix {0}'.format(sum_phixweight))
 

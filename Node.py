@@ -6,6 +6,7 @@ class Node(object):
         self.weight = weight
         self.sigma = sigma
         self.phi = 0
+        self.color = 0
 
     def getPhi(self, input):
         # EXP(-(1/(2*(sigma*sigma)))*()(xOld-xNew)(xOld-xNew)))

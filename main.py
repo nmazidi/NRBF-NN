@@ -7,13 +7,13 @@ from k_means_cluster import *
 from ploterror import PlotError
 import matplotlib.pyplot as plt
 data = ImportData()
-num_hidden_nodes = 750
+num_hidden_nodes = 10
 
-sigma_value = .4
+sigma_value = 5
 network = Network(num_hidden_nodes, sigma_value)
 network = k_means_cluster(network, data[0])
 for i in range(3):
-    #PlotNetwork(network, data[0])
+    PlotNetwork(network, data[0])
     network,old_centers = k_means_update(network,data[0])
     update_found = False
     for j in range(len(old_centers)):
@@ -23,4 +23,6 @@ for i in range(3):
         break
 
 network, data, global_train_err, global_test_err = LearnRBF(data, network)
-PlotError(global_train_err, global_test_err, 1000)
+print(global_train_err)
+print(global_test_err)
+PlotError(global_train_err, global_test_err, 100)

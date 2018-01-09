@@ -9,6 +9,7 @@ def k_means_cluster(network, data):
         centers = []
         for j in range(len(data[0])):
             centers.append(random.uniform(0,max_nested_list(data,j)))
+            #centers.append(data[i][j])
         network.createNode(centers, 1)
 
     # Assignment
