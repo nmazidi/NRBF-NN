@@ -7,9 +7,9 @@ from k_means_cluster import *
 from ploterror import PlotError
 import matplotlib.pyplot as plt
 data = ImportData()
-num_hidden_nodes = 10
+num_hidden_nodes = 100
 
-sigma_value = 5
+sigma_value = 0.4
 network = Network(num_hidden_nodes, sigma_value)
 network = k_means_cluster(network, data[0])
 for i in range(3):

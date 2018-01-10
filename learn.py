@@ -2,7 +2,6 @@ import math
 import matplotlib.pyplot as plt
 from ploterror import PlotError
 from plotlearning import PlotLearning
-import sys
 
 def LearnRBF(data, network):
     iterations = 100
@@ -50,5 +49,7 @@ def LearnRBF(data, network):
         global_test_err.append(math.sqrt(test_err/last_testing_pat))
 
     PlotLearning(network, data)
+
+
 
     return network, data, global_train_err, global_test_err
