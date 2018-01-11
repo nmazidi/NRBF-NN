@@ -11,7 +11,7 @@ def ImportData():
         for line in file:
             raw = line.rstrip('\n').split('\t')
             raw = [float(j) for j in raw]
-            if i <= 100:
+            if i <= 800:
                 #35024
                 trainY.append(raw[0])
                 raw.pop(0)

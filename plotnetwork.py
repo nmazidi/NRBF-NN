@@ -18,6 +18,6 @@ def PlotNetwork(network, data):
 
     for i in range(len(network.assignments)):
         ax.scatter(data[i][0],data[i][1],data[i][2], color=colmap[network.hidden_nodes[network.assignments[i]].color], alpha=0.5, edgecolor='k')
-        ax.auto_scale_xyz([0, 50], [0, 50], [0, 50])
+        #ax.auto_scale_xyz([0, 50], [0, 50], [0, 50])
 
     plt.show()
